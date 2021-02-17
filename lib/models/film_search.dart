@@ -16,4 +16,16 @@ class FilmSearch {
       poster: json["Poster"]
     );
   }
+  static List<FilmSearch> filmsFromJson(dynamic json){
+    var searchResult = json["Search"];
+    if (searchResult != null){
+      var results = new List<FilmSearch>();
+      searchResult.forEach((v){
+        results.add(FilmSearch.fromJson(v));
+      });
+      return results;
+    }
+    return List<FilmSearch>();
+  }
+
 }
